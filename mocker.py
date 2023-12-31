@@ -1,9 +1,9 @@
-from faker import Faker
+import os
+from dotenv import load_dotenv
 
-fake = Faker()
+load_dotenv()
 
-# can be either "stage" or "prod"
-MODE = "stage"
+MODE_ENV = os.getenv("MODE_ENV")
 
 
 class Mock:
@@ -11,7 +11,7 @@ class Mock:
         def dec(func: classmethod):
             def wrapper(*args, **kwargs):
                 print(func.__name__)
-                if (MODE == "stage"):
+                if (MODE_ENV == "stage"):
                     return self.handle_request(req_class)
                 else:
                     return func()
