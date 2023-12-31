@@ -1,9 +1,7 @@
 # payload = {'access_key': '04389f49378e091e9486a3a205dfeacf'}
 from request_struct import RatesRequestClass
-import json
 import requests
 from mocker import Mock
-from data_example import data
 
 mocker = Mock()
 
